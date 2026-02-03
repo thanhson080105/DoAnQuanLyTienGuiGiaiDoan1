@@ -1,25 +1,30 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using Microsoft.EntityFrameworkCore;
 
 namespace DoAnQuanLyTienGui.Data
 {
     public class GiaoDich
     {
-        public string MaGiaoDich { get; set; }
-        public string MaSo { get; set; }
-        public DateTime NgayGiaoDich { get; set; }
-        public decimal SoTien { get; set; }
-        public string MaNV { get; set; }
-        public string MaKH { get; set; }
-        public virtual ObservableCollection<ThongKeChiTiet> ThongKeChiTiet { get; } = new();
+        [Key]
+        public int Id { get; set; }
 
-        public virtual LoaiGiaoDich LoaiGiaoDich { get; set; } = null!;
-        public virtual NhanVien NhanVien { get; set; } = null!;
-        public virtual KhachHang KhachHang { get; set; } = null!;
+        public string MaGD { get; set; }
+        public DateTime NgayGD { get; set; }
+        public decimal SoTien { get; set; }
+
+        public int SoTietKiemId { get; set; }
+        public SoTietKiem SoTietKiem { get; set; }
+
+        public int LoaiGiaoDichId { get; set; }
+        public LoaiGiaoDich LoaiGiaoDich { get; set; }
+
+        public int NhanVienId { get; set; }
+        public NhanVien NhanVien { get; set; }
     }
 }

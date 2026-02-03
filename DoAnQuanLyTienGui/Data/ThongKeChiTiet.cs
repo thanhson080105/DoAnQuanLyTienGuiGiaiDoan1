@@ -8,23 +8,14 @@ namespace DoAnQuanLyTienGui.Data
 {
     public class ThongKeChiTiet
     {
-        public string MaSo { get; set; }
-        public string MaKH { get; set; }
-        public decimal SoTienGui { get; set; }
-        public DateTime NgayGui { get; set; }
-        public int KyHan { get; set; }
-        public string MaGiaoDich { get; set; }
-        public DateTime NgayGiaoDich { get; set; }
-        public decimal SoTien { get; set; }
-        public string MaNV { get; set; }
-        public string LoaiGD { get; set; }
+        public int ThongKeChiTietId { get; set; }
+        public string NoiDung { get; set; }
+        public decimal SoTienTruocGD { get; set; }
+        public decimal SoTienSauGD { get; set; }
 
-
-        public virtual NhanVien NhanVien { get; set; } = null!;
-        public virtual GiaoDich GiaoDich { get; set; } = null!;
-        public virtual KhachHang KhachHang { get; set; } = null!;
-        public virtual SoTietKiem SoTietKiem { get; set; } = null!;
-        public virtual LoaiGiaoDich LoaiGiaoDich { get; set; } = null!;
-
+        // FK
+        public int GiaoDichId { get; set; }
+        public GiaoDich GiaoDich { get; set; }
     }
+
 }

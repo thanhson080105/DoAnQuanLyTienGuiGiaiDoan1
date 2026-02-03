@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +10,16 @@ namespace DoAnQuanLyTienGui.Data
 {
     public class NhanVien
     {
-        public string MaNV { get; set; }
-        public string TenNV { get; set; }
-        public string ChucVu { get; set; }
-        public string SoDienThoai { get; set; }
-        public string TenDangNhap { get; set; }
-        public string MatKhau { get; set; }
-        public virtual ObservableCollection<GiaoDich>  GiaoDich { get; } = new();
-        public virtual ObservableCollection< SoTietKiem> SoTietKiem { get; } = new();
-        public virtual ObservableCollection<ThongKeChiTiet> ThongKeChiTiet { get; } = new();
+        [Key]
+        public int Id { get; set; }         // khóa chính
 
+        public string MaNV { get; set; }    // mã hiển thị
+        public string TenNV { get; set; }
+        public string SDT { get; set; }
+        public string ChucVu { get; set; }
+
+        public ICollection<GiaoDich> GiaoDich { get; set; }
     }
+
+
 }
